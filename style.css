@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+}
+
+#MoneyBox {
+    width: 150px;
+}
+
+
+.Box {
+    margin: 15px;
+    padding: 10px;
+
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 20px, 20px, 10px, black;
+}
+
+.upgradeBoxes {
+    display: none;
+}
+
+.infoTxt{
+    color: rgb(114, 114, 114);
+    font-size: 12px;
+}

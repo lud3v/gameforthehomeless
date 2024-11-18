@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start; 
+    margin-left: 20px;
+    flex-wrap: wrap;
+}
+
+#data, #locations {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#data, #moneyBox {
+    flex-shrink: 0;
+}
+
+#moneyBox {
+    padding-right: 50px;
+}
+
+.upgradeBoxes {
+    display: block; /* Each .upgradeBoxes element will stack vertically */
+    display: none;
+}
+
+#begBtn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.box {
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Corrected box-shadow syntax */
+}
+
+
+/* Style for the locations container grid */
+#locations {
+    display: none;
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Responsive grid */
+    gap: 15px; /* Space between grid items */
+    padding: 10px;
+}
+
+.location-btn {
+    position: relative;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+}
+
+.location-head {
+    position: relative;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: default;
+    text-align: center;
+    overflow: hidden;
+}
+
+.location-text {
+    position: absolute;
+    top: 50%; /* Center text vertically */
+    left: 50%; /* Center text horizontally */
+    transform: translate(-50%, -50%); /* Correct centering */
+    font-size: 13px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Text shadow for better visibility */
+}
+
+.infoTxt, #status{
+    color: rgb(114, 114, 114);
+    font-size: 12px;
+}
+
+
+/* Shop style here */
+#shopContainer {
+    display: none;
+}

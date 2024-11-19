@@ -14,6 +14,15 @@ const locationUpgrade = document.getElementById("locations");
 const activeBeg = document.getElementById("begBtn");
 const status = document.getElementById("status");
 
+// const's for shop
+const shopContainer = document.getElementById("shopContainer");
+
+const shopWater = document.getElementById("water");
+const shopBeer = document.getElementById("beer");
+const shopWhisky = document.getElementById("whisky");
+
+const shopBread = document.getElementById("bread");
+
 const money = {
     money: 0,
     beggedMoney: 0,
@@ -29,7 +38,7 @@ const data = {
 };
 
 const clothing = {
-    cost: 75,
+    cost: 30,
     multiplier: 1.05,
     costIncrease: 1.25,
 };
@@ -38,6 +47,27 @@ const busTicket = {
     cost: 200,
     hasTicket: false,
 };
+
+const shop = {
+    water: {
+        cost: 1,
+        heal: 1,
+    },
+    beer: {
+        cost: 5,
+        damage: 4,
+        multiplier: 1.01,
+    },
+    whisky: {
+        cost: 30,
+        damage: 10,
+        multiplier: 1.15,
+    },
+    bread: {
+        cost: 10,
+        heal: 5,
+    },
+}
 
 const locations = {
     park: true,
@@ -94,26 +124,36 @@ function showUpgrades() {
     }
 }
 
+
 function region() {
     if (locations.park == true) {
         activeBeg.disabled = false;
-        status.textContent = "ready to beg";
+        shopContainer.style.display = "none";
 
+        
     } else if (locations.shop == true) {
         activeBeg.disabled = true;
         status.textContent = "You can't beg here"
 
         // TODO: add shop here (alk, food etc)
+        shopContainer.style.display = "block";
+
 
     } else if (locations.home == true) {
         activeBeg.disabled = true;
         status.textContent = "You can't beg here"
+
+        shopContainer.style.display = "none";
+
 
         // TODO: add sleep here (improves health by 5 or 10 %)
 
     } else if (locations.hood == true) {
         activeBeg.disabled = true;
         status.textContent = "You can't beg here"
+
+        shopContainer.style.display = "none";
+
 
         // don't know why tf i added this, maybe rob someone or
         // get killed idk
@@ -161,6 +201,59 @@ function showClothing() {
     clothingUpgrade.appendChild(clothingContainer);
 }
 
+// oh lord, this will be hella unoptimized but lets do it anyways.
+// shop functions.
+function buyWater() {
+    if (money.money >= shop.water.cost){
+        money.money -= shop.water.cost;
+        updateMoney();
+    }
+}
+shopWater.addEventListener("click", buyWater);
+
+function buyBeer() {
+    if (money.money >= shop.beer.cost){
+        money.money -= shop.beer.cost;
+        data.health -= shop.beer.damage;
+        
+        data.multipliers *= shop.beer.multiplier;
+
+        updateMoney();
+        datadisplay();
+    }
+}
+shopBeer.addEventListener("click", buyBeer)
+
+function buyWhisky() {
+    if (money.money >= shop.whisky.cost){
+        money.money -= shop.whisky.cost;
+        data.health -= shop.whisky.damage;
+        
+        data.multipliers *= shop.whisky.multiplier;
+
+        updateMoney();
+        datadisplay();
+    }
+}
+shopWhisky.addEventListener("click", buyWhisky)
+
+function buyBread() {
+    if (money.money >= shop.bread.cost) {
+
+        money.money -= shop.bread.cost;
+
+        if (data.health < 100) {
+            data.health += shop.bread.heal;
+            if (data.health > 100) {
+                data.health = 100;
+            }
+        }
+
+        updateMoney();
+        datadisplay();
+    }
+}
+shopBread.addEventListener("click", buyBread);
 
 function buyBusTicket () {
     if (money.money >= busTicket.cost && busTicket.hasTicket == false){
@@ -228,6 +321,10 @@ function locationBtn() {
 
 // generate Money lol
 function begBtn () {
+    if (locations.park != true) {
+        status.textContent = "You can't beg here";
+        return;
+    }
     money.beggedMoney = parseFloat((Math.random() * 5 + 4)* data.multipliers.toFixed(2));
     money.money += money.beggedMoney;
     money.money = parseFloat(money.money.toFixed(2));
@@ -244,6 +341,7 @@ function begBtn () {
         timeleft--;
         if (timeleft > 0) {
             status.textContent = `Wait ${timeleft} seconds.`;
+            activeBeg.disabled = true;
         } else {
             clearInterval(timer);
             activeBeg.disabled = false;
@@ -255,10 +353,10 @@ function begBtn () {
     datadisplay();
     showUpgrades();
 }
-activeBeg.addEventListener("click", begBtn);
+ activeBeg.addEventListener("click", begBtn);
 
 // passive income generator every second, multiplied by multiplier
-function passiveIncome () {
+function progressFunc() {
     money.beggedMoney = parseFloat((Math.random() * 3 + 1)* data.multipliers.toFixed(2));
     money.money += money.beggedMoney;
     money.money = parseFloat(money.money.toFixed(2));
@@ -279,7 +377,7 @@ function passiveIncome () {
         datadisplay();
     }
 }
-setInterval(passiveIncome, 2000);
+setInterval(progressFunc, 2000);
 
 
 updateMoney();

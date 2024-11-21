@@ -45,7 +45,7 @@ const clothing = {
 
 const busTicket = {
     cost: 200,
-    hasTicket: false,
+    hasTicket: false
 };
 
 const shop = {
@@ -135,7 +135,6 @@ function region() {
         activeBeg.disabled = true;
         status.textContent = "You can't beg here"
 
-        // TODO: add shop here (alk, food etc)
         shopContainer.style.display = "block";
 
 

@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(https://s1.qwant.com/thumbr/474x266/b/a/fa61252fb6a6e418043c0f102f83567e637041e616822b7e83deeb826345ab/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.U4C58sRUbEnAUhmsms4B4AHaEK%26pid%3DApi&q=0&b=1&p=0&a=0);
+    background-repeat: no-repeat;
+    background-size: contain;
+    backdrop-filter: blur(10px);
+    padding-bottom: 100%;
+    overflow-y: hidden;
+    user-select: none;
+}
+
+.locgrid{
+
+}
+
+/* window move func (fix later)
+.win{
+    position: absolute;
+    cursor: grab;
+    top: 5%
+}
+
+.win:active{
+    cursor: grabbing;
+}
+*/
+
+.wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start; 
+    margin-left: 20px;
+    flex-wrap: wrap;
+}
+
+#data, #locations {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#data, #moneyBox {
+    flex-shrink: 0;
+}
+
+#data {
+    font-size: 15px;
+}
+
+.upgradeBoxes {
+    display: block; /* Each .upgradeBoxes element will stack vertically */
+    display: none;
+}
+
+#begBtn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+
+/* Style for the locations container grid */
+#locations {
+    display: none;
+}
+
+.locations-grid {
+    display: flex;
+    gap: 15px; /* Space between grid items */
+    padding: 10px;
+}
+
+.locationbtn {
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+}
+
+.location-head {
+    position: relative;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: default;
+    text-align: center;
+    overflow: hidden;
+}
+
+.location-text {
+    position: absolute;
+    top: 50%; /* Center text vertically */
+    left: 50%; /* Center text horizontally */
+    transform: translate(-50%, -50%); /* Correct centering */
+    font-size: 13px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Text shadow for better visibility */
+}
+
+.infoTxt, #status{
+    color: rgb(114, 114, 114);
+    font-size: 12px;
+}
+
+
+/* Shop style here */
+#shopContainer {
+    margin: auto;
+    display: none;
+    max-width: 800px;
+    width: fit-content;
+    text-align: center;
+    right: 10px;
+    position: absolute;
+}
+
+.shopHeader {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#shop-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Spacing between grid items */
+    padding: 20px;;
+}
+
+.shopItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.shopItemText {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.divider {
+    grid-column: span 3; /* Spans across all 3 columns in the grid */
+    border: none; 
+    height: 2px; 
+    background-color: black;
+    margin: 5px 0;
+}

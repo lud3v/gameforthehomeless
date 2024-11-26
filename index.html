@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try 2</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://unpkg.com/98.css@0.1.4/build/98.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="data-locations-group">
+            <div class="window win" style="margin: 32px; width: 250px">
+                <div class="title-bar">
+                    <div class="title-bar-text">
+                        Homeless Data
+                    </div>
+
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+                <div id="data" class="window-body">
+                    <!-- dynamic data added with js -->
+                </div>
+            </div>
+            <div id="locations" class="window win" style="margin: 32px; width: 250px">
+                <div class="title-bar">
+                    <div class="title-bar-text">
+                        Locations
+                    </div>
+
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="locations-grid">
+
+                    <p class="location-head" id="location-head">Location: Park</p>
+
+                    <div class="locgrid">
+                        <button class="locationbtn">
+                            <span class="location-text">Park</span>
+                        </button>
+                        <button class="locationbtn">
+                            <span class="location-text">Shop</span>
+                        </button>
+                        <button class="locationbtn">
+                            <span class="location-text">Home</span>
+                        </button>
+                        <button class="locationbtn">
+                            <span class="location-text">Hood</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="moneyBox" class="window win" style="margin: 32px; width: 180px">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    Money
+                </div>
+
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div id="moneyAmount">Money: €0</div>
+                <button id="begBtn">Beg</button>
+                <p id="status">ready to beg</p>
+            </div>
+        </div>
+
+        <div id="clothwin" class="window win upgradeContainer" style="margin: 32px; width: 180px">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    Upgrade
+                </div>
+
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div id="clothingBox" class="window-body">
+                <div id="busTicket" class="box upgradeBoxes"></div>
+            </div>
+        </div>
+
+        <!--Shop-->
+        <div id="shopContainer" class="window win" style="margin: 32px;">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    Shop
+                </div>
+
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div id="shop-grid-container" class="window-body">
+                <hr class="divider">
+
+                <div class="shopItem">
+                    <p class="shopItemText">Water</p>
+                    <p>Price: 2.00€</p> 
+                    <button id="water" class="shopButton">Buy</button>
+                </div>
+                <div class="shopItem">
+                    <p class="shopItemText">Beer</p>
+                    <p>Price: 5.00€</p> 
+                    <button id="beer" class="shopButton">Buy</button>
+                </div>
+                <div class="shopItem">
+                    <p class="shopItemText">Whisky</p>
+                    <p>Price: 30.00€</p> 
+                    <button id="whisky" class="shopButton">Buy</button>
+                </div>
+
+                <hr class="divider">
+
+                <div class="shopItem">
+                    <p class="shopItemText">Bread</p>
+                    <p>Price: 10.00€</p> 
+                    <button id="bread" class="shopButton">Buy</button>
+                </div>
+                <div class="shopItem">
+                    <p class="shopItemText">Chocolate</p>
+                    <p>Price: ?</p> 
+                    <button id="chocolate" class="shopButton">Buy</button>
+                </div>
+                <div class="shopItem">
+                    <p class="shopItemText">Salami</p>
+                    <p>Price: ?</p> 
+                    <button id="salami" class="shopButton">Buy</button>
+                </div>
+                <hr class="divider">
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script1.js"></script>
+</body>
+
+</html>
